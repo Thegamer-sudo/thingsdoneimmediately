@@ -1,0 +1,179 @@
+---
+import Main from '../layouts/Main.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Main title="Portfolio | ThingsDoneImmediately">
+  <Header />
+  
+  <main class="min-h-screen">
+    <!-- Portfolio Hero -->
+    <section class="pt-20 pb-16 md:pt-28 md:pb-24 px-6">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+            <span class="block">Real Work.</span>
+            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-500">Real Results.</span>
+          </h1>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            We build systems that deliver measurable outcomes. Here's what that looks like.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Single Case Study - The Gym -->
+    <section class="py-12 md:py-20 px-6">
+      <div class="container mx-auto max-w-6xl">
+        <div class="bg-gradient-to-br from-white to-gray-50 rounded-3xl border border-gray-100 overflow-hidden shadow-xl">
+          
+          <!-- Case Study Header -->
+          <div class="p-8 md:p-12 border-b border-gray-100">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+              <div>
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 mb-4">
+                  <div class="h-2 w-2 rounded-full bg-blue-500"></div>
+                  <span class="text-sm font-medium text-blue-700">Featured Case Study</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">[GYM NAME] Website</h2>
+                <p class="text-gray-600 mt-2 max-w-2xl">Modern fitness website with booking integration, class schedules, and member portal.</p>
+              </div>
+              <a 
+                href="https://[GYM-WEBSITE-URL].com" 
+                target="_blank"
+                class="px-6 py-3 bg-gradient-to-r from-blue-600 to-emerald-500 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300 whitespace-nowrap"
+              >
+                Visit Live Site ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Video & Stats -->
+          <div class="p-8 md:p-12">
+            <div class="grid lg:grid-cols-2 gap-12">
+              
+              <!-- Left: Video & Description -->
+              <div class="space-y-8">
+                <!-- Video Placeholder -->
+                <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-black aspect-video flex items-center justify-center">
+                  <div class="text-center">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full backdrop-blur-sm mb-4">
+                      <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                    <p class="text-white font-medium">Promo Video Showcase</p>
+                    <p class="text-gray-400 text-sm mt-2">Your gym website introduction video</p>
+                  </div>
+                </div>
+
+                <!-- Quick Description -->
+                <div>
+                  <h3 class="text-xl font-bold text-gray-900 mb-4">The Challenge & Solution</h3>
+                  <div class="space-y-4">
+                    <div class="flex gap-3">
+                      <div class="h-6 w-6 rounded-lg bg-red-50 flex items-center justify-center flex-shrink-0">
+                        <div class="h-2 w-2 rounded-full bg-red-500"></div>
+                      </div>
+                      <p class="text-gray-600">Old website wasn't mobile-friendly. Members couldn't book classes easily.</p>
+                    </div>
+                    <div class="flex gap-3">
+                      <div class="h-6 w-6 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                        <div class="h-2 w-2 rounded-full bg-green-500"></div>
+                      </div>
+                      <p class="text-gray-600">Built modern responsive site with integrated booking system and member portal.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: Stats & Tech -->
+              <div class="space-y-8">
+                <!-- Results -->
+                <div>
+                  <h3 class="text-xl font-bold text-gray-900 mb-6">Results Delivered</h3>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-blue-50 p-4 rounded-xl">
+                      <div class="text-2xl font-bold text-blue-700">40%</div>
+                      <div class="text-sm text-gray-600 mt-1">Faster load times</div>
+                    </div>
+                    <div class="bg-emerald-50 p-4 rounded-xl">
+                      <div class="text-2xl font-bold text-emerald-700">2.5x</div>
+                      <div class="text-sm text-gray-600 mt-1">More online bookings</div>
+                    </div>
+                    <div class="bg-violet-50 p-4 rounded-xl">
+                      <div class="text-2xl font-bold text-violet-700">100%</div>
+                      <div class="text-sm text-gray-600 mt-1">Mobile responsive</div>
+                    </div>
+                    <div class="bg-amber-50 p-4 rounded-xl">
+                      <div class="text-2xl font-bold text-amber-700">24/7</div>
+                      <div class="text-sm text-gray-600 mt-1">Booking availability</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tech Stack -->
+                <div>
+                  <h3 class="text-xl font-bold text-gray-900 mb-6">Tech Stack</h3>
+                  <div class="flex flex-wrap gap-3">
+                    <div class="px-4 py-2 bg-gray-100 rounded-lg text-gray-700 font-medium">HTML/CSS</div>
+                    <div class="px-4 py-2 bg-gray-100 rounded-lg text-gray-700 font-medium">JavaScript</div>
+                    <div class="px-4 py-2 bg-gray-100 rounded-lg text-gray-700 font-medium">Responsive Design</div>
+                    <div class="px-4 py-2 bg-gray-100 rounded-lg text-gray-700 font-medium">Booking System</div>
+                    <div class="px-4 py-2 bg-gray-100 rounded-lg text-gray-700 font-medium">Fast Hosting</div>
+                  </div>
+                </div>
+
+                <!-- Client Feedback -->
+                <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-2xl border border-gray-100">
+                  <div class="flex items-start gap-3">
+                    <div class="h-10 w-10 rounded-full bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center text-white font-bold">
+                      G
+                    </div>
+                    <div>
+                      <p class="text-gray-700 italic">"The new website transformed how our members interact with us. Bookings are seamless, and the mobile experience is perfect."</p>
+                      <div class="flex items-center gap-2 mt-3">
+                        <div class="h-6 w-px bg-gray-300"></div>
+                        <div>
+                          <div class="font-semibold text-gray-900">Gym Owner</div>
+                          <div class="text-sm text-gray-500">[Gym Name]</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- More Work Coming -->
+    <section class="py-20 px-6">
+      <div class="container mx-auto max-w-4xl text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 border border-gray-200 mb-6">
+          <div class="h-2 w-2 rounded-full bg-gray-500"></div>
+          <span class="text-sm font-medium text-gray-700">More Case Studies Coming Soon</span>
+        </div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Your Project Could Be Next</h2>
+        <p class="text-gray-600 text-lg mb-10 max-w-2xl mx-auto">
+          We're currently working with select clients to build high-performance systems.
+          Ready to discuss your project?
+        </p>
+        <a 
+          href="/contact" 
+          class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-emerald-500 text-white font-semibold rounded-xl hover:shadow-xl hover:scale-105 transition-all duration-300 text-lg"
+        >
+          <span>Start Your Project</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Main>

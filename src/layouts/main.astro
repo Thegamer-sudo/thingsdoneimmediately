@@ -1,17 +1,52 @@
 ---
 import '../styles/global.css';
-const { content } = Astro.props;
+
+interface Props {
+  title?: string;
+}
+
+const { title = 'ThingsDoneImmediately | Digital Execution Agency' } = Astro.props;
 ---
 
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<title>{content.title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="High-performance digital execution for ambitious businesses. We build systems, websites, and automations." />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    
+    <title>{title}</title>
+    
+    <style>
+      :root {
+        --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+      }
+      body {
+        font-family: var(--font-inter);
+        background: #ffffff;
+        color: #111827;
+        overflow-x: hidden;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Selection color */
+      ::selection {
+        background: rgba(37, 99, 235, 0.2);
+        color: #111827;
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <slot />
+  </body>
 </html>
