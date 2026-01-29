@@ -36,33 +36,50 @@ const navItems = [
         </a>
       </nav>
 
-      <!-- Mobile menu button -->
-      <button class="lg:hidden p-2" aria-label="Menu">
-        <div class="space-y-1.5">
-          <div class="w-6 h-0.5 bg-gray-700"></div>
-          <div class="w-6 h-0.5 bg-gray-700"></div>
-          <div class="w-4 h-0.5 bg-gray-700"></div>
+      <!-- Mobile Menu -->
+      <div class="lg:hidden">
+        <button class="p-2" id="mobile-menu-button" aria-label="Menu">
+          <div class="space-y-1.5" id="menu-icon">
+            <div class="w-6 h-0.5 bg-gray-700 transition-transform duration-300"></div>
+            <div class="w-6 h-0.5 bg-gray-700 transition-opacity duration-300"></div>
+            <div class="w-6 h-0.5 bg-gray-700 transition-transform duration-300"></div>
+          </div>
+        </button>
+        
+        <!-- Mobile Dropdown Menu (THIS WAS MISSING) -->
+        <div class="absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-lg hidden" id="mobile-dropdown">
+          <div class="px-6 py-4 space-y-4">
+            <a href="/" class="block py-2 text-gray-700 hover:text-blue-600 font-medium text-base">Home</a>
+            <a href="/portfolio" class="block py-2 text-gray-700 hover:text-blue-600 font-medium text-base">Portfolio</a>
+            <a href="/contact" class="block py-2 text-gray-700 hover:text-blue-600 font-medium text-base">Contact</a>
+            <a href="/contact" class="block mt-4 px-6 py-3 bg-gradient-to-r from-blue-600 to-emerald-500 text-white font-semibold rounded-lg text-center hover:shadow-lg transition-all duration-300">
+              Book Strategy Call
+            </a>
+          </div>
         </div>
-      </button>
+      </div>
     </div>
   </div>
+</header>
 
-  <script>
+<!-- Spacer for fixed header -->
+<div class="h-20"></div>
+
+<script>
   // Mobile menu functionality
   document.addEventListener('DOMContentLoaded', () => {
     const menuButton = document.getElementById('mobile-menu-button');
     const mobileDropdown = document.getElementById('mobile-dropdown');
     const menuIcon = document.getElementById('menu-icon');
     
-    if (menuButton && mobileDropdown) {
+    if (menuButton && mobileDropdown && menuIcon) {
       menuButton.addEventListener('click', (e) => {
         e.stopPropagation();
-        const isOpen = mobileDropdown.classList.contains('hidden');
+        const isOpen = !mobileDropdown.classList.contains('hidden');
         
-        if (isOpen) {
+        if (!isOpen) {
           // Open menu
           mobileDropdown.classList.remove('hidden');
-          mobileDropdown.classList.add('animate-fade-in');
           
           // Transform hamburger to X
           menuIcon.children[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
@@ -88,26 +105,34 @@ const navItems = [
           menuIcon.children[2].style.transform = '';
         }
       });
+      
+      // Close menu when clicking links inside
+      mobileDropdown.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileDropdown.classList.add('hidden');
+          menuIcon.children[0].style.transform = '';
+          menuIcon.children[1].style.opacity = '';
+          menuIcon.children[2].style.transform = '';
+        });
+      });
     }
   });
 </script>
 
 <style>
-  #mobile-dropdown.animate-fade-in {
-    animation: fadeIn 0.3s ease-out;
+  /* Animation for dropdown */
+  #mobile-dropdown:not(.hidden) {
+    animation: fadeInDown 0.3s ease-out;
   }
   
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  #menu-icon div {
-    transition: all 0.3s ease;
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 </style>
-
-</header>
-
-<!-- Spacer for fixed header -->
-<div class="h-20"></div>
