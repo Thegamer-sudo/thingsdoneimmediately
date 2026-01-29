@@ -46,6 +46,67 @@ const navItems = [
       </button>
     </div>
   </div>
+
+  <script>
+  // Mobile menu functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileDropdown = document.getElementById('mobile-dropdown');
+    const menuIcon = document.getElementById('menu-icon');
+    
+    if (menuButton && mobileDropdown) {
+      menuButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = mobileDropdown.classList.contains('hidden');
+        
+        if (isOpen) {
+          // Open menu
+          mobileDropdown.classList.remove('hidden');
+          mobileDropdown.classList.add('animate-fade-in');
+          
+          // Transform hamburger to X
+          menuIcon.children[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+          menuIcon.children[1].style.opacity = '0';
+          menuIcon.children[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        } else {
+          // Close menu
+          mobileDropdown.classList.add('hidden');
+          
+          // Reset to hamburger
+          menuIcon.children[0].style.transform = '';
+          menuIcon.children[1].style.opacity = '';
+          menuIcon.children[2].style.transform = '';
+        }
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!mobileDropdown.contains(e.target) && !menuButton.contains(e.target)) {
+          mobileDropdown.classList.add('hidden');
+          menuIcon.children[0].style.transform = '';
+          menuIcon.children[1].style.opacity = '';
+          menuIcon.children[2].style.transform = '';
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  #mobile-dropdown.animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  #menu-icon div {
+    transition: all 0.3s ease;
+  }
+</style>
+
 </header>
 
 <!-- Spacer for fixed header -->

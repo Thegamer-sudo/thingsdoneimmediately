@@ -39,41 +39,21 @@ import Footer from '../components/Footer.astro';
             </a>
             <a 
               href="/portfolio" 
-              class="px-8 py-4 border-2 border-gray-200 text-gray-700 font-semibold rounded-xl hover:border-gray-300 hover:bg-gray-50 transition-all duration-300 text-lg"
+              class="px-8 py-4 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 hover:scale-105 transition-all duration-300 text-lg"
             >
               View Portfolio →
             </a>
-          </div>
-          
-          <!-- Stats -->
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 max-w-4xl mx-auto">
-            <div class="text-center">
-              <div class="text-3xl font-bold text-gray-900">100%</div>
-              <div class="text-gray-600 text-sm mt-1">Client Focus</div>
-            </div>
-            <div class="text-center">
-              <div class="text-3xl font-bold text-gray-900">24/7</div>
-              <div class="text-gray-600 text-sm mt-1">System Uptime</div>
-            </div>
-            <div class="text-center">
-              <div class="text-3xl font-bold text-gray-900">10x</div>
-              <div class="text-gray-600 text-sm mt-1">Execution Speed</div>
-            </div>
-            <div class="text-center">
-              <div class="text-3xl font-bold text-gray-900">∞</div>
-              <div class="text-gray-600 text-sm mt-1">Scalability</div>
-            </div>
           </div>
         </div>
       </div>
       
       <!-- Background elements -->
-      <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
-      <div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-emerald-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse delay-1000"></div>
+      <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-emerald-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
     </section>
 
     <!-- Services Preview -->
-    <section class="py-20 bg-gray-50">
+    <section id="services" class="py-20 bg-gray-50">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
           <h2 class="text-4xl font-bold text-gray-900 mb-4">Outcome-Focused Services</h2>
@@ -81,28 +61,46 @@ import Footer from '../components/Footer.astro';
         </div>
         
         <div class="grid md:grid-cols-3 gap-8">
-          <!-- Service 1 -->
+          <!-- Service 1 - Website Development -->
           <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-shadow duration-300">
-            <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 mb-6"></div>
+            <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 mb-6 flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
             <h3 class="text-xl font-bold text-gray-900 mb-3">Website Development</h3>
             <p class="text-gray-600 mb-6">High-conversion, fast-loading sites built for business growth.</p>
-            <a href="/portfolio" class="text-blue-600 font-medium hover:text-blue-700">View case studies →</a>
+            <a href="/portfolio" class="text-blue-600 font-medium hover:text-blue-700">
+              View case studies →
+            </a>
           </div>
           
-          <!-- Service 2 -->
+          <!-- Service 2 - AI Automation -->
           <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-shadow duration-300">
-            <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 mb-6"></div>
+            <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 mb-6 flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
             <h3 class="text-xl font-bold text-gray-900 mb-3">AI Automation</h3>
             <p class="text-gray-600 mb-6">Intelligent workflows that reduce manual work by 80%.</p>
-            <a href="/portfolio" class="text-blue-600 font-medium hover:text-blue-700">See automation examples →</a>
+            <a href="/portfolio" class="text-blue-600 font-medium hover:text-blue-700">
+              See automation examples →
+            </a>
           </div>
           
-          <!-- Service 3 -->
+          <!-- Service 3 - Business Systems -->
           <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-shadow duration-300">
-            <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-violet-500 to-violet-600 mb-6"></div>
+            <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-violet-500 to-violet-600 mb-6 flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
             <h3 class="text-xl font-bold text-gray-900 mb-3">Business Systems</h3>
             <p class="text-gray-600 mb-6">CRM, workflows, and integrations that scale with you.</p>
-            <a href="/portfolio" class="text-blue-600 font-medium hover:text-blue-700">Explore systems →</a>
+            <a href="/portfolio" class="text-blue-600 font-medium hover:text-blue-700">
+              Explore systems →
+            </a>
           </div>
         </div>
       </div>
