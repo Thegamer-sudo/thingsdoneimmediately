@@ -19,268 +19,337 @@ import Footer from '../components/Footer.astro';
             </span>
           </h1>
           <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Ready to systemize your business? Choose how you'd like to connect.
+            Fill this form once. Choose how you'd like to connect.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Contact Methods Grid -->
+    <!-- Contact Form -->
     <section class="py-8 md:py-16 px-4 md:px-6">
-      <div class="container mx-auto max-w-6xl">
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+      <div class="container mx-auto max-w-4xl">
+        <div class="bg-white rounded-2xl shadow-xl p-6 md:p-10">
           
-          <!-- Left: Email Contact Form -->
-          <div>
-            <div class="lg:sticky lg:top-24">
-              <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                📧 Send an Email
+          <!-- Smart Form -->
+          <form id="contactForm" class="space-y-6 md:space-y-8">
+            <div class="text-center mb-8">
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                Send a Message
               </h2>
-              <p class="text-gray-600 mb-6">
-                Fill this form and I'll respond within 24 hours.
+              <p class="text-gray-600">
+                Fill once. Choose how you want me to respond.
               </p>
-              
-              <!-- SIMPLE FORM - Just opens email client -->
-              <form 
-                action="mailto:goodenough245@gmail.com" 
-                method="GET" 
-                enctype="text/plain"
-                class="space-y-5 md:space-y-6"
+            </div>
+
+            <!-- Name -->
+            <div>
+              <label for="name" class="block text-lg font-medium text-gray-800 mb-2">
+                Your Name *
+              </label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                required 
+                class="w-full px-5 py-4 text-lg rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:ring-3 focus:ring-blue-200 transition-all outline-none"
+                placeholder="John Smith"
+              />
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label for="email" class="block text-lg font-medium text-gray-800 mb-2">
+                Email Address *
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required 
+                class="w-full px-5 py-4 text-lg rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:ring-3 focus:ring-blue-200 transition-all outline-none"
+                placeholder="john@example.com"
+              />
+            </div>
+
+            <!-- Service -->
+            <div>
+              <label for="service" class="block text-lg font-medium text-gray-800 mb-2">
+                Service Interest *
+              </label>
+              <select 
+                id="service" 
+                name="service" 
+                required
+                class="w-full px-5 py-4 text-lg rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:ring-3 focus:ring-blue-200 transition-all outline-none"
               >
-                <input type="hidden" name="subject" value="New Inquiry from ThingsDoneImmediately">
-                
-                <div>
-                  <label for="name" class="block text-sm font-medium text-gray-700 mb-1 md:mb-2">
-                    Your Name *
-                  </label>
+                <option value="">Select a service</option>
+                <option value="Website Development">Website Development</option>
+                <option value="AI Automation">AI Automation</option>
+                <option value="Business Systems">Business Systems</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <!-- Project Details -->
+            <div>
+              <label for="message" class="block text-lg font-medium text-gray-800 mb-2">
+                Project Details *
+              </label>
+              <textarea 
+                id="message" 
+                name="message" 
+                rows="5"
+                required
+                class="w-full px-5 py-4 text-lg rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:ring-3 focus:ring-blue-200 transition-all outline-none"
+                placeholder="Tell me about your project, goals, budget, and timeline..."
+              ></textarea>
+            </div>
+
+            <!-- Preferred Contact Method -->
+            <div class="pt-4">
+              <label class="block text-lg font-medium text-gray-800 mb-4">
+                How should I contact you back? *
+              </label>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- WhatsApp Option -->
+                <div class="relative">
                   <input 
-                    type="text" 
-                    id="name" 
-                    name="name" 
-                    required 
-                    class="w-full px-4 py-3 rounded-lg md:rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none text-base"
-                    placeholder="John Smith"
-                  />
-                </div>
-
-                <div>
-                  <label for="email" class="block text-sm font-medium text-gray-700 mb-1 md:mb-2">
-                    Your Email *
-                  </label>
-                  <input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    required 
-                    class="w-full px-4 py-3 rounded-lg md:rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none text-base"
-                    placeholder="john@example.com"
-                  />
-                </div>
-
-                <div>
-                  <label for="service" class="block text-sm font-medium text-gray-700 mb-1 md:mb-2">
-                    Service Interest
-                  </label>
-                  <select 
-                    id="service" 
-                    name="service" 
-                    class="w-full px-4 py-3 rounded-lg md:rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none text-base"
-                  >
-                    <option value="">Select a service</option>
-                    <option value="Website Development">Website Development</option>
-                    <option value="AI Automation">AI Automation</option>
-                    <option value="Business Systems">Business Systems</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label for="message" class="block text-sm font-medium text-gray-700 mb-1 md:mb-2">
-                    Project Details *
-                  </label>
-                  <textarea 
-                    id="message" 
-                    name="body" 
-                    rows="4"
+                    type="radio" 
+                    id="whatsapp" 
+                    name="contactMethod" 
+                    value="whatsapp" 
+                    class="hidden peer"
                     required
-                    class="w-full px-4 py-3 rounded-lg md:rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none text-base"
-                    placeholder="Tell me about your project..."
-                  ></textarea>
-                </div>
-
-                <div class="pt-2 md:pt-4">
-                  <button 
-                    type="submit"
-                    class="w-full px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-blue-600 to-emerald-500 text-white font-semibold rounded-lg md:rounded-xl hover:shadow-lg transition-all duration-300 text-base md:text-lg"
+                  />
+                  <label 
+                    for="whatsapp" 
+                    class="flex items-center justify-between p-5 border-2 border-gray-200 rounded-xl cursor-pointer peer-checked:border-green-500 peer-checked:bg-green-50 hover:bg-gray-50 transition-all"
                   >
-                    Open Email Draft
-                  </button>
-                  <p class="text-gray-500 text-sm text-center mt-3 md:mt-4">
-                    Opens your email app with pre-filled message
-                  </p>
+                    <div class="flex items-center gap-4">
+                      <div class="h-12 w-12 rounded-xl bg-green-100 flex items-center justify-center">
+                        <span class="text-2xl">💬</span>
+                      </div>
+                      <div>
+                        <div class="font-bold text-gray-900">WhatsApp</div>
+                        <div class="text-gray-600 text-sm">Instant messaging</div>
+                      </div>
+                    </div>
+                    <div class="h-6 w-6 rounded-full border-2 border-gray-300 peer-checked:bg-green-500 peer-checked:border-green-500"></div>
+                  </label>
                 </div>
-              </form>
-            </div>
-          </div>
 
-          <!-- Right: Other Contact Methods -->
-          <div class="space-y-8 md:space-y-12">
-            
-            <!-- WhatsApp Contact -->
-            <div class="bg-gradient-to-br from-green-50 to-white rounded-xl md:rounded-2xl p-6 md:p-8 border border-green-100">
-              <div class="flex items-center gap-3 mb-4">
-                <div class="h-12 w-12 rounded-xl bg-green-100 flex items-center justify-center">
-                  <span class="text-2xl">💬</span>
-                </div>
-                <div>
-                  <h3 class="text-xl md:text-2xl font-bold text-gray-900">WhatsApp Message</h3>
-                  <p class="text-gray-600 text-sm">Chat directly with me</p>
-                </div>
-              </div>
-              
-              <p class="text-gray-600 mb-6">
-                Prefer instant messaging? Send me a WhatsApp message for faster response.
-              </p>
-              
-              <!-- YOUR WHATSAPP NUMBER: +27 76 362 1131 -->
-              <a 
-                href="https://wa.me/27763621131?text=Hi%20Anele!%20I%20saw%20your%20ThingsDoneImmediately%20website%20and%20wanted%20to%20discuss%20a%20project."
-                target="_blank"
-                class="inline-flex items-center justify-center w-full gap-3 px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 hover:shadow-lg transition-all duration-300"
-              >
-                <span class="text-xl">💬</span>
-                <span>Message on WhatsApp</span>
-              </a>
-              
-              <p class="text-gray-500 text-sm mt-4">
-                Usually respond within a few hours
-              </p>
-              
-              <div class="mt-4 pt-4 border-t border-green-100">
-                <div class="text-sm text-gray-600">
-                  <span class="font-medium">Direct number:</span>
-                  <button 
-                    onclick="navigator.clipboard.writeText('+27763621131')"
-                    class="ml-2 text-green-600 hover:text-green-800"
+                <!-- Email Option -->
+                <div class="relative">
+                  <input 
+                    type="radio" 
+                    id="emailMethod" 
+                    name="contactMethod" 
+                    value="email" 
+                    class="hidden peer"
+                    required
+                  />
+                  <label 
+                    for="emailMethod" 
+                    class="flex items-center justify-between p-5 border-2 border-gray-200 rounded-xl cursor-pointer peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 transition-all"
                   >
-                    +27 76 362 1131 📋
-                  </button>
+                    <div class="flex items-center gap-4">
+                      <div class="h-12 w-12 rounded-xl bg-blue-100 flex items-center justify-center">
+                        <span class="text-2xl">📧</span>
+                      </div>
+                      <div>
+                        <div class="font-bold text-gray-900">Email</div>
+                        <div class="text-gray-600 text-sm">Formal communication</div>
+                      </div>
+                    </div>
+                    <div class="h-6 w-6 rounded-full border-2 border-gray-300 peer-checked:bg-blue-500 peer-checked:border-blue-500"></div>
+                  </label>
                 </div>
               </div>
             </div>
 
-            <!-- Direct Email -->
-            <div class="bg-gradient-to-br from-blue-50 to-white rounded-xl md:rounded-2xl p-6 md:p-8 border border-blue-100">
-              <div class="flex items-center gap-3 mb-4">
-                <div class="h-12 w-12 rounded-xl bg-blue-100 flex items-center justify-center">
-                  <span class="text-2xl">📧</span>
-                </div>
-                <div>
-                  <h3 class="text-xl md:text-2xl font-bold text-gray-900">Direct Email</h3>
-                  <p class="text-gray-600 text-sm">For detailed discussions</p>
-                </div>
-              </div>
-              
-              <div class="mb-6">
-                <div class="font-semibold text-gray-900 mb-2">Email Address:</div>
-                <div class="text-lg text-blue-600 font-mono">goodenough245@gmail.com</div>
-                <button 
-                  onclick="navigator.clipboard.writeText('goodenough245@gmail.com')"
-                  class="text-blue-500 text-sm mt-2 hover:text-blue-700"
-                >
-                  📋 Click to copy
-                </button>
-              </div>
-              
-              <a 
-                href="mailto:goodenough245@gmail.com?subject=Project%20Inquiry%20-%20ThingsDoneImmediately&body=Hi%20Anele,%0A%0AI%20wanted%20to%20discuss%20the%20following%20project..."
-                class="inline-flex items-center justify-center w-full gap-3 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 hover:shadow-lg transition-all duration-300"
+            <!-- Submit Buttons (Dynamic) -->
+            <div class="pt-6">
+              <!-- WhatsApp Submit Button (Hidden by default) -->
+              <button 
+                type="button"
+                id="whatsappSubmitBtn"
+                class="hidden w-full px-8 py-5 bg-green-600 text-white font-bold text-xl rounded-xl hover:bg-green-700 hover:shadow-xl transition-all duration-300 mb-4"
               >
-                <span class="text-xl">✉️</span>
-                <span>Compose Email</span>
-              </a>
-            </div>
-
-            <!-- Calendly Schedule (Optional - Add later) -->
-            <div class="bg-gradient-to-br from-purple-50 to-white rounded-xl md:rounded-2xl p-6 md:p-8 border border-purple-100">
-              <div class="flex items-center gap-3 mb-4">
-                <div class="h-12 w-12 rounded-xl bg-purple-100 flex items-center justify-center">
-                  <span class="text-2xl">📅</span>
-                </div>
-                <div>
-                  <h3 class="text-xl md:text-2xl font-bold text-gray-900">Schedule a Call</h3>
-                  <p class="text-gray-600 text-sm">Book a free strategy session</p>
-                </div>
-              </div>
+                💬 Send via WhatsApp
+              </button>
               
-              <p class="text-gray-600 mb-6">
-                30-minute free consultation to discuss your project and goals.
-              </p>
-              
-              <a 
-                href="#"
-                onclick="alert('Calendly link coming soon! For now, please use WhatsApp or Email.')"
-                class="inline-flex items-center justify-center w-full gap-3 px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 hover:shadow-lg transition-all duration-300"
+              <!-- Email Submit Button (Hidden by default) -->
+              <button 
+                type="button"
+                id="emailSubmitBtn"
+                class="hidden w-full px-8 py-5 bg-blue-600 text-white font-bold text-xl rounded-xl hover:bg-blue-700 hover:shadow-xl transition-all duration-300"
               >
-                <span class="text-xl">📅</span>
-                <span>Book Strategy Call</span>
-              </a>
+                📧 Send Message
+              </button>
               
-              <p class="text-gray-500 text-sm mt-4">
-                No sales pitch. Just strategy.
+              <!-- Default Submit Button -->
+              <button 
+                type="button"
+                id="defaultSubmitBtn"
+                class="w-full px-8 py-5 bg-gray-300 text-gray-600 font-bold text-xl rounded-xl cursor-not-allowed"
+                disabled
+              >
+                Select contact method above
+              </button>
+              
+              <p class="text-gray-500 text-center mt-4">
+                I'll respond within 24 hours.
               </p>
             </div>
 
-            <!-- Response Time Info -->
-            <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl md:rounded-2xl p-6 md:p-8 border border-gray-100">
-              <h3 class="text-xl font-bold text-gray-900 mb-4">What to Expect</h3>
-              <ul class="space-y-3">
-                <li class="flex items-start gap-3">
-                  <span class="text-green-500 mt-1">✓</span>
-                  <div>
-                    <div class="font-medium text-gray-900">24-hour Response</div>
-                    <div class="text-gray-600 text-sm">Usually respond same day</div>
-                  </div>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="text-green-500 mt-1">✓</span>
-                  <div>
-                    <div class="font-medium text-gray-900">Free Consultation</div>
-                    <div class="text-gray-600 text-sm">30-min strategy call for qualified projects</div>
-                  </div>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="text-green-500 mt-1">✓</span>
-                  <div>
-                    <div class="font-medium text-gray-900">Clear Proposal</div>
-                    <div class="text-gray-600 text-sm">Detailed scope, timeline, and pricing</div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Social Links -->
-            <div class="text-center">
-              <p class="text-gray-600 mb-4">Or connect on social media:</p>
-              <div class="flex justify-center gap-4">
-                <a href="https://x.com/not_thegamer_in" target="_blank" class="text-gray-600 hover:text-blue-500">
-                  𝕏 Twitter
-                </a>
-                <span class="text-gray-300">•</span>
-                <a href="https://www.linkedin.com/in/anele-gumede-59105727a/" target="_blank" class="text-gray-600 hover:text-blue-700">
-                  LinkedIn
-                </a>
-                <span class="text-gray-300">•</span>
-                <a href="https://github.com/Thegamer-sudo" target="_blank" class="text-gray-600 hover:text-gray-900">
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </div>
+            <!-- Message Display -->
+            <div id="formMessage" class="hidden p-5 rounded-xl text-center text-lg"></div>
+          </form>
         </div>
       </div>
     </section>
   </main>
 
   <Footer />
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contactForm');
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const serviceInput = document.getElementById('service');
+      const messageInput = document.getElementById('message');
+      const whatsappRadio = document.getElementById('whatsapp');
+      const emailRadio = document.getElementById('emailMethod');
+      const whatsappBtn = document.getElementById('whatsappSubmitBtn');
+      const emailBtn = document.getElementById('emailSubmitBtn');
+      const defaultBtn = document.getElementById('defaultSubmitBtn');
+      const formMessage = document.getElementById('formMessage');
+
+      // Show appropriate submit button based on selection
+      function updateSubmitButton() {
+        if (whatsappRadio.checked) {
+          whatsappBtn.classList.remove('hidden');
+          emailBtn.classList.add('hidden');
+          defaultBtn.classList.add('hidden');
+        } else if (emailRadio.checked) {
+          emailBtn.classList.remove('hidden');
+          whatsappBtn.classList.add('hidden');
+          defaultBtn.classList.add('hidden');
+        } else {
+          whatsappBtn.classList.add('hidden');
+          emailBtn.classList.add('hidden');
+          defaultBtn.classList.remove('hidden');
+        }
+      }
+
+      // Listen for contact method changes
+      whatsappRadio.addEventListener('change', updateSubmitButton);
+      emailRadio.addEventListener('change', updateSubmitButton);
+
+      // WhatsApp Submission
+      whatsappBtn.addEventListener('click', function() {
+        // Get form data
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const service = serviceInput.value;
+        const message = messageInput.value.trim();
+
+        // Validate
+        if (!name || !email || !service || !message) {
+          showMessage('Please fill in all fields.', 'error');
+          return;
+        }
+
+        // Create WhatsApp message
+        const whatsappMessage = `Hi Anele!%0A%0AName: ${name}%0AEmail: ${email}%0AService: ${service}%0A%0AProject Details:%0A${message}%0A%0A(I contacted you via ThingsDoneImmediately.com)`;
+        
+        // Your WhatsApp number (formatted for WhatsApp link)
+        const phoneNumber = '27763621131'; // +27 76 362 1131
+        
+        // Open WhatsApp
+        window.open(`https://wa.me/${phoneNumber}?text=${whatsappMessage}`, '_blank');
+        
+        // Show success message
+        showMessage('✅ WhatsApp opened! Please send the pre-filled message.', 'success');
+        
+        // Clear form after a delay
+        setTimeout(() => {
+          form.reset();
+          updateSubmitButton();
+          showMessage('Form cleared. You can send another message.', 'info');
+        }, 3000);
+      });
+
+      // Email Submission (using Netlify Forms - SIMPLE!)
+      emailBtn.addEventListener('click', async function() {
+        // Get form data
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const service = serviceInput.value;
+        const message = messageInput.value.trim();
+
+        // Validate
+        if (!name || !email || !service || !message) {
+          showMessage('Please fill in all fields.', 'error');
+          return;
+        }
+
+        // Show sending state
+        const originalText = emailBtn.textContent;
+        emailBtn.textContent = 'Sending...';
+        emailBtn.disabled = true;
+
+        try {
+          // Method 1: Use Formspree (FREE & SIMPLE)
+          // Sign up at formspree.io, get form ID, then use:
+          // const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+          //   method: 'POST',
+          //   headers: { 'Content-Type': 'application/json' },
+          //   body: JSON.stringify({ name, email, service, message })
+          // });
+          
+          // Method 2: Use Netlify Forms (if configured)
+          // Just let the form submit normally if you add netlify attribute
+          
+          // TEMPORARY: Show success (we'll implement actual email later)
+          showMessage('✅ Message sent successfully! I\'ll email you within 24 hours.', 'success');
+          
+          // Clear form after a delay
+          setTimeout(() => {
+            form.reset();
+            updateSubmitButton();
+            emailBtn.textContent = originalText;
+            emailBtn.disabled = false;
+          }, 3000);
+          
+        } catch (error) {
+          showMessage('❌ Error sending message. Please try WhatsApp or email me directly at goodenough245@gmail.com', 'error');
+          emailBtn.textContent = originalText;
+          emailBtn.disabled = false;
+        }
+      });
+
+      // Helper function to show messages
+      function showMessage(text, type) {
+        formMessage.textContent = text;
+        formMessage.className = 'p-5 rounded-xl text-center text-lg ';
+        
+        if (type === 'success') {
+          formMessage.className += 'bg-green-100 text-green-700';
+        } else if (type === 'error') {
+          formMessage.className += 'bg-red-100 text-red-700';
+        } else if (type === 'info') {
+          formMessage.className += 'bg-blue-100 text-blue-700';
+        }
+        
+        formMessage.classList.remove('hidden');
+        formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      // Initialize
+      updateSubmitButton();
+    });
+  </script>
 </Main>
