@@ -8,7 +8,7 @@ import Footer from '../components/Footer.astro';
   <Header />
   
   <main class="min-h-screen">
-    <!-- Contact Hero - FIXED the text cutoff -->
+    <!-- Contact Hero -->
     <section class="pt-20 pb-12 md:pt-28 md:pb-16 px-6">
       <div class="container mx-auto max-w-6xl">
         <div class="text-center mb-8 md:mb-12">
@@ -19,26 +19,40 @@ import Footer from '../components/Footer.astro';
             </span>
           </h1>
           <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Ready to systemize your business? Send us a message and we'll get back to you within 24 hours.
+            Ready to systemize your business? Choose how you'd like to connect.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Contact Sections -->
+    <!-- Contact Methods Grid -->
     <section class="py-8 md:py-16 px-4 md:px-6">
       <div class="container mx-auto max-w-6xl">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
           
-          <!-- Left: Contact Form - ENHANCED for mobile -->
+          <!-- Left: Email Contact Form -->
           <div>
             <div class="lg:sticky lg:top-24">
-              <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 md:mb-8">Send a Message</h2>
+              <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                📧 Send an Email
+              </h2>
+              <p class="text-gray-600 mb-6">
+                Fill this form and I'll respond within 24 hours.
+              </p>
               
-              <!-- Updated form with better mobile styling -->
-              <form id="contactForm" name="contact" method="POST" class="space-y-5 md:space-y-6">
+              <!-- SIMPLE FORM - Just opens email client -->
+              <form 
+                action="mailto:goodenough245@gmail.com" 
+                method="GET" 
+                enctype="text/plain"
+                class="space-y-5 md:space-y-6"
+              >
+                <input type="hidden" name="subject" value="New Inquiry from ThingsDoneImmediately">
+                
                 <div>
-                  <label for="name" class="block text-sm font-medium text-gray-700 mb-1 md:mb-2">Your Name *</label>
+                  <label for="name" class="block text-sm font-medium text-gray-700 mb-1 md:mb-2">
+                    Your Name *
+                  </label>
                   <input 
                     type="text" 
                     id="name" 
@@ -50,7 +64,9 @@ import Footer from '../components/Footer.astro';
                 </div>
 
                 <div>
-                  <label for="email" class="block text-sm font-medium text-gray-700 mb-1 md:mb-2">Email Address *</label>
+                  <label for="email" class="block text-sm font-medium text-gray-700 mb-1 md:mb-2">
+                    Your Email *
+                  </label>
                   <input 
                     type="email" 
                     id="email" 
@@ -62,150 +78,203 @@ import Footer from '../components/Footer.astro';
                 </div>
 
                 <div>
-                  <label for="service" class="block text-sm font-medium text-gray-700 mb-1 md:mb-2">Service Interest *</label>
+                  <label for="service" class="block text-sm font-medium text-gray-700 mb-1 md:mb-2">
+                    Service Interest
+                  </label>
                   <select 
                     id="service" 
                     name="service" 
-                    required
                     class="w-full px-4 py-3 rounded-lg md:rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none text-base"
                   >
                     <option value="">Select a service</option>
                     <option value="Website Development">Website Development</option>
                     <option value="AI Automation">AI Automation</option>
                     <option value="Business Systems">Business Systems</option>
-                    <option value="Digital Strategy">Digital Strategy</option>
                     <option value="Other">Other</option>
                   </select>
                 </div>
 
                 <div>
-                  <label for="message" class="block text-sm font-medium text-gray-700 mb-1 md:mb-2">Project Details *</label>
+                  <label for="message" class="block text-sm font-medium text-gray-700 mb-1 md:mb-2">
+                    Project Details *
+                  </label>
                   <textarea 
                     id="message" 
-                    name="message" 
+                    name="body" 
                     rows="4"
                     required
                     class="w-full px-4 py-3 rounded-lg md:rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none text-base"
-                    placeholder="Tell us about your project, goals, and timeline..."
+                    placeholder="Tell me about your project..."
                   ></textarea>
                 </div>
 
                 <div class="pt-2 md:pt-4">
                   <button 
                     type="submit"
-                    id="submitBtn"
                     class="w-full px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-blue-600 to-emerald-500 text-white font-semibold rounded-lg md:rounded-xl hover:shadow-lg transition-all duration-300 text-base md:text-lg"
                   >
-                    Send Message
+                    Open Email Draft
                   </button>
                   <p class="text-gray-500 text-sm text-center mt-3 md:mt-4">
-                    We'll respond within 24 hours.
+                    Opens your email app with pre-filled message
                   </p>
                 </div>
-
-                <!-- Success/Error Message -->
-                <div id="formMessage" class="hidden p-4 rounded-lg text-center"></div>
               </form>
             </div>
           </div>
 
-          <!-- Right: Contact Info Only - REMOVED Calendly block -->
+          <!-- Right: Other Contact Methods -->
           <div class="space-y-8 md:space-y-12">
-            <!-- Quick Contact - UPDATED with your email -->
-            <div>
-              <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Get in Touch</h3>
-              <div class="space-y-4 md:space-y-6">
-                <div class="flex items-start gap-3 md:gap-4 p-3 md:p-4 rounded-lg md:rounded-xl hover:bg-gray-50 transition-colors">
-                  <div class="h-10 w-10 md:h-12 md:w-12 rounded-lg md:rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
-                    <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div class="font-semibold text-gray-900">Email</div>
-                    <div class="text-gray-600">goodenough245@gmail.com</div>
-                    <div class="text-gray-500 text-xs md:text-sm mt-1">Primary contact method</div>
-                  </div>
+            
+            <!-- WhatsApp Contact -->
+            <div class="bg-gradient-to-br from-green-50 to-white rounded-xl md:rounded-2xl p-6 md:p-8 border border-green-100">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="h-12 w-12 rounded-xl bg-green-100 flex items-center justify-center">
+                  <span class="text-2xl">💬</span>
                 </div>
-
-                <div class="flex items-start gap-3 md:gap-4 p-3 md:p-4 rounded-lg md:rounded-xl hover:bg-gray-50 transition-colors">
-                  <div class="h-10 w-10 md:h-12 md:w-12 rounded-lg md:rounded-xl bg-emerald-100 flex items-center justify-center flex-shrink-0">
-                    <svg class="w-5 h-5 md:w-6 md:h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div class="font-semibold text-gray-900">Response Time</div>
-                    <div class="text-gray-600">Within 24 hours</div>
-                    <div class="text-gray-500 text-xs md:text-sm mt-1">Usually faster</div>
-                  </div>
+                <div>
+                  <h3 class="text-xl md:text-2xl font-bold text-gray-900">WhatsApp Message</h3>
+                  <p class="text-gray-600 text-sm">Chat directly with me</p>
                 </div>
-
-                <div class="flex items-start gap-3 md:gap-4 p-3 md:p-4 rounded-lg md:rounded-xl hover:bg-gray-50 transition-colors">
-                  <div class="h-10 w-10 md:h-12 md:w-12 rounded-lg md:rounded-xl bg-violet-100 flex items-center justify-center flex-shrink-0">
-                    <svg class="w-5 h-5 md:w-6 md:h-6 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div class="font-semibold text-gray-900">Location</div>
-                    <div class="text-gray-600">Remote • Global</div>
-                    <div class="text-gray-500 text-xs md:text-sm mt-1">Working with clients worldwide</div>
-                  </div>
+              </div>
+              
+              <p class="text-gray-600 mb-6">
+                Prefer instant messaging? Send me a WhatsApp message for faster response.
+              </p>
+              
+              <!-- YOUR WHATSAPP NUMBER: +27 76 362 1131 -->
+              <a 
+                href="https://wa.me/27763621131?text=Hi%20Anele!%20I%20saw%20your%20ThingsDoneImmediately%20website%20and%20wanted%20to%20discuss%20a%20project."
+                target="_blank"
+                class="inline-flex items-center justify-center w-full gap-3 px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 hover:shadow-lg transition-all duration-300"
+              >
+                <span class="text-xl">💬</span>
+                <span>Message on WhatsApp</span>
+              </a>
+              
+              <p class="text-gray-500 text-sm mt-4">
+                Usually respond within a few hours
+              </p>
+              
+              <div class="mt-4 pt-4 border-t border-green-100">
+                <div class="text-sm text-gray-600">
+                  <span class="font-medium">Direct number:</span>
+                  <button 
+                    onclick="navigator.clipboard.writeText('+27763621131')"
+                    class="ml-2 text-green-600 hover:text-green-800"
+                  >
+                    +27 76 362 1131 📋
+                  </button>
                 </div>
               </div>
             </div>
 
-            <!-- Process Section - KEPT as is -->
-            <div>
-              <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Our Process</h3>
-              <div class="space-y-3 md:space-y-4">
-                <div class="flex gap-3 md:gap-4">
-                  <div class="h-7 w-7 md:h-8 md:w-8 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center flex-shrink-0 text-sm">1</div>
-                  <div>
-                    <div class="font-semibold text-gray-900">Strategy Call</div>
-                    <div class="text-gray-600 text-xs md:text-sm">Understand your goals and challenges</div>
-                  </div>
+            <!-- Direct Email -->
+            <div class="bg-gradient-to-br from-blue-50 to-white rounded-xl md:rounded-2xl p-6 md:p-8 border border-blue-100">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="h-12 w-12 rounded-xl bg-blue-100 flex items-center justify-center">
+                  <span class="text-2xl">📧</span>
                 </div>
-                <div class="flex gap-3 md:gap-4">
-                  <div class="h-7 w-7 md:h-8 md:w-8 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center flex-shrink-0 text-sm">2</div>
-                  <div>
-                    <div class="font-semibold text-gray-900">Proposal & Plan</div>
-                    <div class="text-gray-600 text-xs md:text-sm">Detailed scope, timeline, and investment</div>
-                  </div>
-                </div>
-                <div class="flex gap-3 md:gap-4">
-                  <div class="h-7 w-7 md:h-8 md:w-8 rounded-full bg-violet-100 text-violet-700 font-bold flex items-center justify-center flex-shrink-0 text-sm">3</div>
-                  <div>
-                    <div class="font-semibold text-gray-900">Build & Execute</div>
-                    <div class="text-gray-600 text-xs md:text-sm">High-speed development with regular updates</div>
-                  </div>
+                <div>
+                  <h3 class="text-xl md:text-2xl font-bold text-gray-900">Direct Email</h3>
+                  <p class="text-gray-600 text-sm">For detailed discussions</p>
                 </div>
               </div>
+              
+              <div class="mb-6">
+                <div class="font-semibold text-gray-900 mb-2">Email Address:</div>
+                <div class="text-lg text-blue-600 font-mono">goodenough245@gmail.com</div>
+                <button 
+                  onclick="navigator.clipboard.writeText('goodenough245@gmail.com')"
+                  class="text-blue-500 text-sm mt-2 hover:text-blue-700"
+                >
+                  📋 Click to copy
+                </button>
+              </div>
+              
+              <a 
+                href="mailto:goodenough245@gmail.com?subject=Project%20Inquiry%20-%20ThingsDoneImmediately&body=Hi%20Anele,%0A%0AI%20wanted%20to%20discuss%20the%20following%20project..."
+                class="inline-flex items-center justify-center w-full gap-3 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 hover:shadow-lg transition-all duration-300"
+              >
+                <span class="text-xl">✉️</span>
+                <span>Compose Email</span>
+              </a>
             </div>
 
-            <!-- Added: What Happens Next -->
-            <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl md:rounded-2xl p-5 md:p-6 border border-gray-100">
-              <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">What Happens Next?</h3>
-              <ul class="space-y-2 md:space-y-3 text-gray-600 text-sm md:text-base">
-                <li class="flex items-start gap-2">
-                  <span class="text-emerald-500 mt-1">✓</span>
-                  <span>You'll get an immediate confirmation</span>
+            <!-- Calendly Schedule (Optional - Add later) -->
+            <div class="bg-gradient-to-br from-purple-50 to-white rounded-xl md:rounded-2xl p-6 md:p-8 border border-purple-100">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="h-12 w-12 rounded-xl bg-purple-100 flex items-center justify-center">
+                  <span class="text-2xl">📅</span>
+                </div>
+                <div>
+                  <h3 class="text-xl md:text-2xl font-bold text-gray-900">Schedule a Call</h3>
+                  <p class="text-gray-600 text-sm">Book a free strategy session</p>
+                </div>
+              </div>
+              
+              <p class="text-gray-600 mb-6">
+                30-minute free consultation to discuss your project and goals.
+              </p>
+              
+              <a 
+                href="#"
+                onclick="alert('Calendly link coming soon! For now, please use WhatsApp or Email.')"
+                class="inline-flex items-center justify-center w-full gap-3 px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 hover:shadow-lg transition-all duration-300"
+              >
+                <span class="text-xl">📅</span>
+                <span>Book Strategy Call</span>
+              </a>
+              
+              <p class="text-gray-500 text-sm mt-4">
+                No sales pitch. Just strategy.
+              </p>
+            </div>
+
+            <!-- Response Time Info -->
+            <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl md:rounded-2xl p-6 md:p-8 border border-gray-100">
+              <h3 class="text-xl font-bold text-gray-900 mb-4">What to Expect</h3>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <span class="text-green-500 mt-1">✓</span>
+                  <div>
+                    <div class="font-medium text-gray-900">24-hour Response</div>
+                    <div class="text-gray-600 text-sm">Usually respond same day</div>
+                  </div>
                 </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-emerald-500 mt-1">✓</span>
-                  <span>I review your project details personally</span>
+                <li class="flex items-start gap-3">
+                  <span class="text-green-500 mt-1">✓</span>
+                  <div>
+                    <div class="font-medium text-gray-900">Free Consultation</div>
+                    <div class="text-gray-600 text-sm">30-min strategy call for qualified projects</div>
+                  </div>
                 </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-emerald-500 mt-1">✓</span>
-                  <span>Receive a tailored response within 24 hours</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-emerald-500 mt-1">✓</span>
-                  <span>We schedule a strategy call if it's a good fit</span>
+                <li class="flex items-start gap-3">
+                  <span class="text-green-500 mt-1">✓</span>
+                  <div>
+                    <div class="font-medium text-gray-900">Clear Proposal</div>
+                    <div class="text-gray-600 text-sm">Detailed scope, timeline, and pricing</div>
+                  </div>
                 </li>
               </ul>
+            </div>
+
+            <!-- Social Links -->
+            <div class="text-center">
+              <p class="text-gray-600 mb-4">Or connect on social media:</p>
+              <div class="flex justify-center gap-4">
+                <a href="https://x.com/not_thegamer_in" target="_blank" class="text-gray-600 hover:text-blue-500">
+                  𝕏 Twitter
+                </a>
+                <span class="text-gray-300">•</span>
+                <a href="https://www.linkedin.com/in/anele-gumede-59105727a/" target="_blank" class="text-gray-600 hover:text-blue-700">
+                  LinkedIn
+                </a>
+                <span class="text-gray-300">•</span>
+                <a href="https://github.com/Thegamer-sudo" target="_blank" class="text-gray-600 hover:text-gray-900">
+                  GitHub
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -214,75 +283,4 @@ import Footer from '../components/Footer.astro';
   </main>
 
   <Footer />
-
-  <!-- JavaScript for form handling -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('contactForm');
-      const submitBtn = document.getElementById('submitBtn');
-      const formMessage = document.getElementById('formMessage');
-
-      form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        // Disable button and show loading
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-        
-        // Hide any previous messages
-        formMessage.classList.add('hidden');
-        
-        // Get form data
-        const formData = {
-          name: document.getElementById('name').value.trim(),
-          email: document.getElementById('email').value.trim(),
-          service: document.getElementById('service').value,
-          message: document.getElementById('message').value.trim()
-        };
-        
-        try {
-          // Send to our Netlify function (we'll set this up in next step)
-          const response = await fetch('/.netlify/functions/submit-form', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData)
-          });
-          
-          const result = await response.json();
-          
-          // Show message
-          formMessage.textContent = result.success 
-            ? '✅ Message sent successfully! You\'ll hear from us within 24 hours.' 
-            : '❌ Error: ' + (result.error || 'Please try again.');
-          
-          formMessage.className = 'p-4 rounded-lg text-center ' + 
-            (result.success ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700');
-          formMessage.classList.remove('hidden');
-          
-          // Clear form if successful
-          if (result.success) {
-            form.reset();
-            // Scroll to message
-            setTimeout(() => {
-              formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 100);
-          }
-          
-        } catch (error) {
-          // Show error message
-          formMessage.textContent = '⚠️ Network error. Please check connection and try again.';
-          formMessage.className = 'p-4 rounded-lg text-center bg-yellow-100 text-yellow-700';
-          formMessage.classList.remove('hidden');
-          
-        } finally {
-          // Reset button
-          submitBtn.textContent = originalText;
-          submitBtn.disabled = false;
-        }
-      });
-    });
-  </script>
 </Main>
