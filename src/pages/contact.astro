@@ -8,134 +8,142 @@ import Footer from '../components/Footer.astro';
   <Header />
   
   <main class="min-h-screen">
-    <!-- Contact Hero -->
-    <section class="pt-20 pb-16 md:pt-28 md:pb-24 px-6">
+    <!-- Contact Hero - FIXED the text cutoff -->
+    <section class="pt-20 pb-12 md:pt-28 md:pb-16 px-6">
       <div class="container mx-auto max-w-6xl">
-        <div class="text-center mb-12">
-          <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+        <div class="text-center mb-8 md:mb-12">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 md:mb-6">
             <span class="block">Let's Build</span>
-            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-500">Something Great</span>
+            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-500 mt-2">
+              Something Great
+            </span>
           </h1>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to systemize your business? Book a free strategy call to discuss your digital execution needs.
+          <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+            Ready to systemize your business? Send us a message and we'll get back to you within 24 hours.
           </p>
         </div>
       </div>
     </section>
 
     <!-- Contact Sections -->
-    <section class="py-12 md:py-20 px-6">
+    <section class="py-8 md:py-16 px-4 md:px-6">
       <div class="container mx-auto max-w-6xl">
-        <div class="grid lg:grid-cols-2 gap-16">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
           
-          <!-- Left: Contact Form -->
+          <!-- Left: Contact Form - ENHANCED for mobile -->
           <div>
-            <div class="sticky top-24">
-              <h2 class="text-3xl font-bold text-gray-900 mb-8">Send a Message</h2>
+            <div class="lg:sticky lg:top-24">
+              <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 md:mb-8">Send a Message</h2>
               
-              <!-- Netlify Form (will work when deployed) -->
-              <form name="contact" method="POST" netlify class="space-y-6">
+              <!-- Updated form with better mobile styling -->
+              <form id="contactForm" name="contact" method="POST" class="space-y-5 md:space-y-6">
                 <div>
-                  <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+                  <label for="name" class="block text-sm font-medium text-gray-700 mb-1 md:mb-2">Your Name *</label>
                   <input 
                     type="text" 
                     id="name" 
                     name="name" 
                     required 
-                    class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
+                    class="w-full px-4 py-3 rounded-lg md:rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none text-base"
                     placeholder="John Smith"
                   />
                 </div>
 
                 <div>
-                  <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                  <label for="email" class="block text-sm font-medium text-gray-700 mb-1 md:mb-2">Email Address *</label>
                   <input 
                     type="email" 
                     id="email" 
                     name="email" 
                     required 
-                    class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
+                    class="w-full px-4 py-3 rounded-lg md:rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none text-base"
                     placeholder="john@example.com"
                   />
                 </div>
 
                 <div>
-                  <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Service Interest</label>
+                  <label for="service" class="block text-sm font-medium text-gray-700 mb-1 md:mb-2">Service Interest *</label>
                   <select 
                     id="service" 
                     name="service" 
-                    class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
+                    required
+                    class="w-full px-4 py-3 rounded-lg md:rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none text-base"
                   >
                     <option value="">Select a service</option>
-                    <option value="website">Website Development</option>
-                    <option value="ai">AI Automation</option>
-                    <option value="systems">Business Systems</option>
-                    <option value="strategy">Digital Strategy</option>
-                    <option value="other">Other</option>
+                    <option value="Website Development">Website Development</option>
+                    <option value="AI Automation">AI Automation</option>
+                    <option value="Business Systems">Business Systems</option>
+                    <option value="Digital Strategy">Digital Strategy</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
 
                 <div>
-                  <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Project Details</label>
+                  <label for="message" class="block text-sm font-medium text-gray-700 mb-1 md:mb-2">Project Details *</label>
                   <textarea 
                     id="message" 
                     name="message" 
-                    rows="5"
-                    class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
+                    rows="4"
+                    required
+                    class="w-full px-4 py-3 rounded-lg md:rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none text-base"
                     placeholder="Tell us about your project, goals, and timeline..."
                   ></textarea>
                 </div>
 
-                <div class="pt-4">
+                <div class="pt-2 md:pt-4">
                   <button 
                     type="submit"
-                    class="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-emerald-500 text-white font-semibold rounded-xl hover:shadow-xl hover:scale-[1.02] transition-all duration-300 text-lg"
+                    id="submitBtn"
+                    class="w-full px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-blue-600 to-emerald-500 text-white font-semibold rounded-lg md:rounded-xl hover:shadow-lg transition-all duration-300 text-base md:text-lg"
                   >
                     Send Message
                   </button>
-                  <p class="text-gray-500 text-sm text-center mt-4">
+                  <p class="text-gray-500 text-sm text-center mt-3 md:mt-4">
                     We'll respond within 24 hours.
                   </p>
                 </div>
+
+                <!-- Success/Error Message -->
+                <div id="formMessage" class="hidden p-4 rounded-lg text-center"></div>
               </form>
             </div>
           </div>
 
-          <!-- Right: Contact Info & CTA -->
-          <div class="space-y-12">
-            <!-- Quick Contact -->
+          <!-- Right: Contact Info Only - REMOVED Calendly block -->
+          <div class="space-y-8 md:space-y-12">
+            <!-- Quick Contact - UPDATED with your email -->
             <div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
-              <div class="space-y-6">
-                <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors">
-                  <div class="h-12 w-12 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
-                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Get in Touch</h3>
+              <div class="space-y-4 md:space-y-6">
+                <div class="flex items-start gap-3 md:gap-4 p-3 md:p-4 rounded-lg md:rounded-xl hover:bg-gray-50 transition-colors">
+                  <div class="h-10 w-10 md:h-12 md:w-12 rounded-lg md:rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                     </svg>
                   </div>
                   <div>
                     <div class="font-semibold text-gray-900">Email</div>
-                    <div class="text-gray-600">hello@thingsdoneimmediately.com</div>
-                    <div class="text-gray-500 text-sm mt-1">Primary contact method</div>
+                    <div class="text-gray-600">goodenough245@gmail.com</div>
+                    <div class="text-gray-500 text-xs md:text-sm mt-1">Primary contact method</div>
                   </div>
                 </div>
 
-                <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors">
-                  <div class="h-12 w-12 rounded-xl bg-emerald-100 flex items-center justify-center flex-shrink-0">
-                    <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="flex items-start gap-3 md:gap-4 p-3 md:p-4 rounded-lg md:rounded-xl hover:bg-gray-50 transition-colors">
+                  <div class="h-10 w-10 md:h-12 md:w-12 rounded-lg md:rounded-xl bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                   </div>
                   <div>
                     <div class="font-semibold text-gray-900">Response Time</div>
                     <div class="text-gray-600">Within 24 hours</div>
-                    <div class="text-gray-500 text-sm mt-1">Usually faster</div>
+                    <div class="text-gray-500 text-xs md:text-sm mt-1">Usually faster</div>
                   </div>
                 </div>
 
-                <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors">
-                  <div class="h-12 w-12 rounded-xl bg-violet-100 flex items-center justify-center flex-shrink-0">
-                    <svg class="w-6 h-6 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="flex items-start gap-3 md:gap-4 p-3 md:p-4 rounded-lg md:rounded-xl hover:bg-gray-50 transition-colors">
+                  <div class="h-10 w-10 md:h-12 md:w-12 rounded-lg md:rounded-xl bg-violet-100 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                     </svg>
@@ -143,58 +151,61 @@ import Footer from '../components/Footer.astro';
                   <div>
                     <div class="font-semibold text-gray-900">Location</div>
                     <div class="text-gray-600">Remote • Global</div>
-                    <div class="text-gray-500 text-sm mt-1">Working with clients worldwide</div>
+                    <div class="text-gray-500 text-xs md:text-sm mt-1">Working with clients worldwide</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Calendly Embed Placeholder -->
-            <div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-100">
-              <h3 class="text-2xl font-bold text-gray-900 mb-4">Book a Strategy Call</h3>
-              <p class="text-gray-600 mb-6">
-                30-minute free consultation to discuss your project, goals, and how we can help.
-              </p>
-              <a 
-                href="#" 
-                class="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-600 to-emerald-500 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300"
-              >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-                <span>Schedule on Calendly</span>
-              </a>
-              <p class="text-gray-500 text-sm mt-4">
-                No sales pitch. Just strategy.
-              </p>
-            </div>
-
-            <!-- Process -->
+            <!-- Process Section - KEPT as is -->
             <div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-6">Our Process</h3>
-              <div class="space-y-4">
-                <div class="flex gap-4">
-                  <div class="h-8 w-8 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center flex-shrink-0">1</div>
+              <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Our Process</h3>
+              <div class="space-y-3 md:space-y-4">
+                <div class="flex gap-3 md:gap-4">
+                  <div class="h-7 w-7 md:h-8 md:w-8 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center flex-shrink-0 text-sm">1</div>
                   <div>
                     <div class="font-semibold text-gray-900">Strategy Call</div>
-                    <div class="text-gray-600 text-sm">Understand your goals and challenges</div>
+                    <div class="text-gray-600 text-xs md:text-sm">Understand your goals and challenges</div>
                   </div>
                 </div>
-                <div class="flex gap-4">
-                  <div class="h-8 w-8 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center flex-shrink-0">2</div>
+                <div class="flex gap-3 md:gap-4">
+                  <div class="h-7 w-7 md:h-8 md:w-8 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center flex-shrink-0 text-sm">2</div>
                   <div>
                     <div class="font-semibold text-gray-900">Proposal & Plan</div>
-                    <div class="text-gray-600 text-sm">Detailed scope, timeline, and investment</div>
+                    <div class="text-gray-600 text-xs md:text-sm">Detailed scope, timeline, and investment</div>
                   </div>
                 </div>
-                <div class="flex gap-4">
-                  <div class="h-8 w-8 rounded-full bg-violet-100 text-violet-700 font-bold flex items-center justify-center flex-shrink-0">3</div>
+                <div class="flex gap-3 md:gap-4">
+                  <div class="h-7 w-7 md:h-8 md:w-8 rounded-full bg-violet-100 text-violet-700 font-bold flex items-center justify-center flex-shrink-0 text-sm">3</div>
                   <div>
                     <div class="font-semibold text-gray-900">Build & Execute</div>
-                    <div class="text-gray-600 text-sm">High-speed development with regular updates</div>
+                    <div class="text-gray-600 text-xs md:text-sm">High-speed development with regular updates</div>
                   </div>
                 </div>
               </div>
+            </div>
+
+            <!-- Added: What Happens Next -->
+            <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl md:rounded-2xl p-5 md:p-6 border border-gray-100">
+              <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">What Happens Next?</h3>
+              <ul class="space-y-2 md:space-y-3 text-gray-600 text-sm md:text-base">
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-500 mt-1">✓</span>
+                  <span>You'll get an immediate confirmation</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-500 mt-1">✓</span>
+                  <span>I review your project details personally</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-500 mt-1">✓</span>
+                  <span>Receive a tailored response within 24 hours</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-500 mt-1">✓</span>
+                  <span>We schedule a strategy call if it's a good fit</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -203,4 +214,75 @@ import Footer from '../components/Footer.astro';
   </main>
 
   <Footer />
+
+  <!-- JavaScript for form handling -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contactForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const formMessage = document.getElementById('formMessage');
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Disable button and show loading
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        // Hide any previous messages
+        formMessage.classList.add('hidden');
+        
+        // Get form data
+        const formData = {
+          name: document.getElementById('name').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          service: document.getElementById('service').value,
+          message: document.getElementById('message').value.trim()
+        };
+        
+        try {
+          // Send to our Netlify function (we'll set this up in next step)
+          const response = await fetch('/.netlify/functions/submit-form', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+          });
+          
+          const result = await response.json();
+          
+          // Show message
+          formMessage.textContent = result.success 
+            ? '✅ Message sent successfully! You\'ll hear from us within 24 hours.' 
+            : '❌ Error: ' + (result.error || 'Please try again.');
+          
+          formMessage.className = 'p-4 rounded-lg text-center ' + 
+            (result.success ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700');
+          formMessage.classList.remove('hidden');
+          
+          // Clear form if successful
+          if (result.success) {
+            form.reset();
+            // Scroll to message
+            setTimeout(() => {
+              formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+          }
+          
+        } catch (error) {
+          // Show error message
+          formMessage.textContent = '⚠️ Network error. Please check connection and try again.';
+          formMessage.className = 'p-4 rounded-lg text-center bg-yellow-100 text-yellow-700';
+          formMessage.classList.remove('hidden');
+          
+        } finally {
+          // Reset button
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }
+      });
+    });
+  </script>
 </Main>
