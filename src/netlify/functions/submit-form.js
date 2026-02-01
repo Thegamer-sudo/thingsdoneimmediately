@@ -1,5 +1,5 @@
 // netlify/functions/submit-form.js
-exports.handler = async function(event, context) {
+export default async function handler(event, context) {
   // Only allow POST requests
   if (event.httpMethod !== "POST") {
     return {
@@ -145,4 +145,4 @@ ${message}
       }),
     };
   }
-};
+}
