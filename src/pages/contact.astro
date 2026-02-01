@@ -30,8 +30,19 @@ import Footer from '../components/Footer.astro';
       <div class="container mx-auto max-w-4xl">
         <div class="bg-white rounded-2xl shadow-xl p-6 md:p-10">
           
-          <!-- Smart Form -->
-          <form id="contactForm" class="space-y-6 md:space-y-8">
+          <!-- Netlify Form + WhatsApp Choice -->
+          <form 
+            id="contactForm" 
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify
+            class="space-y-6 md:space-y-8"
+          >
+            <!-- Hidden Netlify Fields -->
+            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="contact-method" id="contactMethodField" />
+            
             <div class="text-center mb-8">
               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
                 Send a Message
@@ -117,7 +128,7 @@ import Footer from '../components/Footer.astro';
                   <input 
                     type="radio" 
                     id="whatsapp" 
-                    name="contactMethod" 
+                    name="contact-method-choice" 
                     value="whatsapp" 
                     class="hidden peer"
                     required
@@ -144,7 +155,7 @@ import Footer from '../components/Footer.astro';
                   <input 
                     type="radio" 
                     id="emailMethod" 
-                    name="contactMethod" 
+                    name="contact-method-choice" 
                     value="email" 
                     class="hidden peer"
                     required
@@ -181,7 +192,7 @@ import Footer from '../components/Footer.astro';
               
               <!-- Email Submit Button (Hidden by default) -->
               <button 
-                type="button"
+                type="submit"
                 id="emailSubmitBtn"
                 class="hidden w-full px-8 py-5 bg-blue-600 text-white font-bold text-xl rounded-xl hover:bg-blue-700 hover:shadow-xl transition-all duration-300"
               >
@@ -220,6 +231,7 @@ import Footer from '../components/Footer.astro';
       const emailInput = document.getElementById('email');
       const serviceInput = document.getElementById('service');
       const messageInput = document.getElementById('message');
+      const contactMethodField = document.getElementById('contactMethodField');
       const whatsappRadio = document.getElementById('whatsapp');
       const emailRadio = document.getElementById('emailMethod');
       const whatsappBtn = document.getElementById('whatsappSubmitBtn');
@@ -233,14 +245,17 @@ import Footer from '../components/Footer.astro';
           whatsappBtn.classList.remove('hidden');
           emailBtn.classList.add('hidden');
           defaultBtn.classList.add('hidden');
+          contactMethodField.value = 'whatsapp';
         } else if (emailRadio.checked) {
           emailBtn.classList.remove('hidden');
           whatsappBtn.classList.add('hidden');
           defaultBtn.classList.add('hidden');
+          contactMethodField.value = 'email';
         } else {
           whatsappBtn.classList.add('hidden');
           emailBtn.classList.add('hidden');
           defaultBtn.classList.remove('hidden');
+          contactMethodField.value = '';
         }
       }
 
@@ -271,65 +286,52 @@ import Footer from '../components/Footer.astro';
         // Open WhatsApp
         window.open(`https://wa.me/${phoneNumber}?text=${whatsappMessage}`, '_blank');
         
+        // Also submit to Netlify Forms (for your records)
+        submitToNetlifyForms(name, email, service, message, 'whatsapp');
+        
         // Show success message
-        showMessage('✅ WhatsApp opened! Please send the pre-filled message.', 'success');
+        showMessage('✅ WhatsApp opened! Please send the pre-filled message. I also saved your details.', 'success');
         
         // Clear form after a delay
         setTimeout(() => {
           form.reset();
           updateSubmitButton();
           showMessage('Form cleared. You can send another message.', 'info');
-        }, 3000);
+        }, 5000);
       });
 
-      // Email Submission (using Netlify Forms - SIMPLE!)
-      emailBtn.addEventListener('click', async function() {
-        // Get form data
-        const name = nameInput.value.trim();
-        const email = emailInput.value.trim();
-        const service = serviceInput.value;
-        const message = messageInput.value.trim();
-
-        // Validate
-        if (!name || !email || !service || !message) {
-          showMessage('Please fill in all fields.', 'error');
-          return;
+      // Email Submission (Netlify Forms handles this)
+      // The form will submit normally when emailBtn (type="submit") is clicked
+      
+      // Add loading state for email submission
+      form.addEventListener('submit', function(e) {
+        if (emailRadio.checked) {
+          const emailBtn = document.getElementById('emailSubmitBtn');
+          emailBtn.textContent = 'Sending...';
+          emailBtn.disabled = true;
         }
+      });
 
-        // Show sending state
-        const originalText = emailBtn.textContent;
-        emailBtn.textContent = 'Sending...';
-        emailBtn.disabled = true;
-
+      // Form submission success (Netlify will redirect to thank you page)
+      // We'll handle this with JavaScript for better UX
+      async function submitToNetlifyForms(name, email, service, message, method) {
         try {
-          // Method 1: Use Formspree (FREE & SIMPLE)
-          // Sign up at formspree.io, get form ID, then use:
-          // const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-          //   method: 'POST',
-          //   headers: { 'Content-Type': 'application/json' },
-          //   body: JSON.stringify({ name, email, service, message })
-          // });
+          const formData = new FormData();
+          formData.append('form-name', 'contact');
+          formData.append('name', name);
+          formData.append('email', email);
+          formData.append('service', service);
+          formData.append('message', message);
+          formData.append('contact-method', method);
           
-          // Method 2: Use Netlify Forms (if configured)
-          // Just let the form submit normally if you add netlify attribute
-          
-          // TEMPORARY: Show success (we'll implement actual email later)
-          showMessage('✅ Message sent successfully! I\'ll email you within 24 hours.', 'success');
-          
-          // Clear form after a delay
-          setTimeout(() => {
-            form.reset();
-            updateSubmitButton();
-            emailBtn.textContent = originalText;
-            emailBtn.disabled = false;
-          }, 3000);
-          
+          await fetch('/', {
+            method: 'POST',
+            body: formData,
+          });
         } catch (error) {
-          showMessage('❌ Error sending message. Please try WhatsApp or email me directly at goodenough245@gmail.com', 'error');
-          emailBtn.textContent = originalText;
-          emailBtn.disabled = false;
+          console.log('Netlify backup save:', error);
         }
-      });
+      }
 
       // Helper function to show messages
       function showMessage(text, type) {
