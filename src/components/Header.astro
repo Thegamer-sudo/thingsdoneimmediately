@@ -9,9 +9,19 @@ const navItems = [
 <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
   <div class="container mx-auto px-6">
     <div class="flex items-center justify-between h-20">
-      <!-- Logo -->
+      <!-- Logo with actual favicon -->
       <a href="/" class="flex items-center gap-3 group">
-        <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-600 to-emerald-500 group-hover:scale-105 transition-transform duration-300"></div>
+        <!-- Your actual logo/favicon -->
+        <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-600 to-emerald-500 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+          <img 
+            src="/favicon.ico" 
+            alt="ThingsDoneImmediately Logo"
+            width="40"
+            height="40"
+            class="h-full w-full object-cover"
+            onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(to bottom right, #2563eb, #10b981)'"
+          />
+        </div>
         <div>
           <div class="text-xl font-bold tracking-tight text-gray-900">ThingsDoneImmediately</div>
           <div class="text-xs font-semibold tracking-wide text-gray-500 uppercase">Digital Execution</div>
@@ -46,7 +56,7 @@ const navItems = [
           </div>
         </button>
         
-        <!-- Mobile Dropdown Menu (THIS WAS MISSING) -->
+        <!-- Mobile Dropdown Menu -->
         <div class="absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-lg hidden" id="mobile-dropdown">
           <div class="px-6 py-4 space-y-4">
             <a href="/" class="block py-2 text-gray-700 hover:text-blue-600 font-medium text-base">Home</a>
